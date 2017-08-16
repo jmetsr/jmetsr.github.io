@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asteroids</title>
+
+    <style>
+      html, body, canvas {
+        padding: 0px;
+        margin: 0px;
+      }
+      .scores {
+       /* position: relative;*/
+        bottom: 500px;
+        width: 460px;
+        height: 40px;
+        margin: 8px;
+        overflow: scroll;   
+      }
+      .lev {
+        position: absolute;
+        bottom: 150px;
+        left: 500px;
+      }
+      #points {
+        margin: 8px;
+      }
+      html {overflow-y: scroll;}
+      #canvas {
+        border: 1px solid blue;
+        margin: 20px;
+        background: #C0C0C0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var c = canvas.getContext('2d');
+    </script>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="keymaster.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="lib/moving_object.js"></script>
+    <script src="lib/asteroid.js"></script>
+    <script src="lib/game.js"></script>
+    <script src="lib/bullet.js"></script>
+    <script src="lib/ship.js"></script>
+    <script src="lib/gun.js"></script>
+    <script src="lib/block.js"></script>
+    <script src="lib/atractor.js"></script>
+
+    <script src="lib/gameview.js"></script>
+    <div id="points">Points</div>
+    <div id="scores" class="scores">Scores: </div>
+    <div id="level" class="lev">Level: </div>
+
+
+
+
+  </body>
+</html>
