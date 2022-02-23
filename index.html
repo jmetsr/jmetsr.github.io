@@ -1,234 +1,114 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style>
-	.party {
-		height: 30px;
-		display: inline-block;
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-	.party:hover {
-		cursor: pointer;
-	}
-	.name {
-		width: 160px;
-		display: inline-block;
-	}
-	#coalition .party {
-		float: left;
-	}
-	.hidden {
-		display: none;
-	}
-	button:hover {
-		cursor: pointer;
-	}
-</style>
-<h3>Click on the parties you want to bring into your coalition. Reach the line and you can form a government</h3>
-<div class="name">Blue and White:</div><div class="party" name="bw" style="width: 140px; background: linear-gradient(to right, #e6e600 0%, #ccffff 100%);"></div>
-<br><div class="name">Likud:</div><div class="party" name="lk" style="width: 120px; background: red;"></div>
-<br><div class="name">Hadash-Ta'al:</div><div  name="had" class="party" style="width: 32px; background: purple;
-;"></div>
-<br><div class="name">Jewish Home: </div><div name="jh" class="party" style="width: 24px; background: orange;"></div>
-<br><div class="name">United Torah Judaism: </div><div name="utj" class="party" style="width: 28px; background: linear-gradient(to right, #e6e600 0%, black 100%);"></div>
-<br><div class="name">Shas: </div><div name="shas" class="party" style="width: 24px; background: linear-gradient(to right, black 0%, #e6e600 100%);
-;"></div>
-<br><div class="name">Yisrael Beytenu:</div><div name="yb" class="party" style="width: 16px; background: green;"></div>
-<br><div class="name">New right: </div><div name="nr" class="party" style="width: 28px; background: orange;"></div>
-<br><div class="name">Labor: </div><div name="labor" class="party" style="width: 32px; background: #86b300;"></div>
-<br><div class="name">Meretz: </div><div name="m" class="party" style="width: 20px; background: linear-gradient(to right, orange 0%, green 100%);"></div>
-<br><div class="name">Ra'am-Balad: </div><div  name="rb" class="party" style="width: 16px; background: pink;"></div>
-<br><br>Coalition:<br>
-<div id="coalition" style="border: 1px solid black; height: 30px; width: 480px;">
-<div name="bw-c" class="party hidden" style="width: 140px; background: linear-gradient(to right, #e6e600 0%, #ccffff 100%);"></div>
-<div name="lk-c" class="party hidden" style="width: 120px; background: red;"></div>
-<div name="had-c" class="party hidden" style="width: 32px; background: purple;"></div>
-<div name="jh-c" class="party hidden" style="width: 24px; background: orange;"></div>
-<div name="utj-c"class="party hidden" style="width: 28px; background: linear-gradient(to right, #e6e600 0%, black 100%);"></div>
-<div name="shas-c" class="party hidden" style="width: 24px; background: linear-gradient(to right, black 0%, #e6e600 100%);"></div>
-<div name="yb-c" class="party hidden" style="width: 16px; background: green;"></div>
-<div name="nr-c" class="party hidden" style="width: 28px; background: orange;"></div>
-<div name="labor-c" class="party hidden" style="width: 32px; background: #86b300;"></div>
-<div name="m-c" class="party hidden" style="width: 20px; background: linear-gradient(to right, orange 0%, green 100%);"></div>
-<div name="rb-c" class="party hidden" style="width: 16px; background: pink;"></div>
-</div>
-
-<div class="line" style="border-right: 1px solid black; height: 30px; position: relative; bottom: 30px; width: 244px;"></div>
-
-<ul>
-<li name="bw-c" class="hidden">Blue and White</li>
-<li name="lk-c" class="hidden">Likud</li>
-<li name="had-c" class="hidden">Hadash-Ta'al </li>
-<li name="jh-c" class="hidden">Jewish Home</li>
-<li name="utj-c" class="hidden">United Torah Judaism</li>
-<li name="shas-c" class="hidden">Shas</li>
-<li name="yb-c" class="hidden">Yisrael Beytenu</li>
-<li name="nr-c" class="hidden">New right</li>
-<li name="labor-c" class="hidden">Labor  </li>
-<li name="k-c" class="hidden">Kulanu </li>
-<li name="m-c" class="hidden">Meretz </li>
-<li name="rb-c" class="hidden">Ra'am-Balad</li>
-</ul>
-<div style="width: 238px; display: inline-block;">Left/Right Polling error: <span class="points">0</span> points</div> <button class="plus">+</button><button class="minus">-</button>
-<br>
-(Adjust up or down to see what can happen if the current polls are off)
 <script>
-	$('div[name="bw"]').click(function(){
-    	$('div[name="bw-c"]').toggleClass("hidden");
-    	$('li[name="bw-c"]').toggleClass("hidden");
-	});
-	$('div[name="lk"]').click(function(){
-    	$('div[name="lk-c"]').toggleClass("hidden");
-    	$('li[name="lk-c"]').toggleClass("hidden");
-	});
-	$('div[name="had"]').click(function(){
-    	$('div[name="had-c"]').toggleClass("hidden");
-    	$('li[name="had-c"]').toggleClass("hidden");
-	});
-	$('div[name="jh"]').click(function(){
-    	$('div[name="jh-c"]').toggleClass("hidden");
-    	$('li[name="jh-c"]').toggleClass("hidden");
-	});
-	$('div[name="utj"]').click(function(){
-    	$('div[name="utj-c"]').toggleClass("hidden");
-    	$('li[name="utj-c"]').toggleClass("hidden");
-	});
-	$('div[name="shas"]').click(function(){
-    	$('div[name="shas-c"]').toggleClass("hidden");
-    	$('li[name="shas-c"]').toggleClass("hidden");
-	});
-	$('div[name="yb"]').click(function(){
-    	$('div[name="yb-c"]').toggleClass("hidden");
-    	$('li[name="yb-c"]').toggleClass("hidden");
-	});
-	$('div[name="nr"]').click(function(){
-    	$('div[name="nr-c"]').toggleClass("hidden");
-    	$('li[name="nr-c"]').toggleClass("hidden");
-	});
-	$('div[name="labor"]').click(function(){
-    	$('div[name="labor-c"]').toggleClass("hidden");
-    	$('li[name="labor-c"]').toggleClass("hidden");
-	});
-	$('div[name="k"]').click(function(){
-    	$('div[name="k-c"]').toggleClass("hidden");
-    	$('li[name="k-c"]').toggleClass("hidden");
-	});
-    $('div[name="m"]').click(function(){
-    	$('div[name="m-c"]').toggleClass("hidden");
-    	$('li[name="m-c"]').toggleClass("hidden");
-	});
-	$('div[name="rb"]').click(function(){
-    	$('div[name="rb-c"]').toggleClass("hidden");
-    	$('li[name="rb-c"]').toggleClass("hidden");
-	});
+	
+proteins = [
+	["Roast Chicken",12],
+	["Kabobs",4],
+	["Lentil Soup",3],
+	["Salmon",1],
+	["Chili",2],
+	["Salmon",1],
+	["Lentils (with onion soup mix)",3],
+	["steak",2],
+	["fried chicken",2],
+	["hot dogs and hamburgers",3],
+	["veggie burgers/cutlets",6],
+	["exotic (goose/duck)",2],
+	["turkey",6]
+];
+starch = [
+	["pasta",8],
+	["rice",10],
+	["potatos",4],
+	["corn",2],
+	["couscous",6],
+	["pita chips",6],
+	["pita",5],
+	["ptitim",6]
+];
 
-	$('button[class="plus"]').click(function(){
-		var currPoints = $('.points').html();
-		var newPoints = parseFloat(currPoints)+.5;
-		$('.points').html(newPoints);
+mix = [
+	["Chicken-rice bake",18],
+	["Chicken-rice stir fry",6],
+	["Chicken-pasta stir fry",6],
+	["špaghetti bolognese",8],
+	["rice bolognese (i.e. stir fry but with ground meat)",7],
+	["order out",10],
+	["cheese and pasta",5],
+	["homemade pizza",4],
+	["dairy burritos",4],
+	["meat burritos",2],
+	["chicken rice mushroom casserole",2],
+	["chicken salad",2],
+	["tomato chicken pie",6],
+	["Mushroom sauce - chicken and pasta",5],
+];
 
-		var newWith = $('div[name="bw"]').width()*1.01;
-		$('div[name="bw"]').width(newWith);
-		$('div[name="bw-c"]').width(newWith);
+healthy = [
+	["israeli salad",8],
+	["fruit salad",8],
+	["sauted squash",6],
+	["roasted tomatos",5],
+	["roasted califlower",5],
+	["roasted brocoli",5],
+	["rosted esparagous",5],
+	["roasted spinach",3],
+	["roasted mushrroms",3],
+	["letticue salad",2]
 
-		var newWith = $('div[name="lk"]').width()*.99;
-		$('div[name="lk"]').width(newWith);
-		$('div[name="lk-c"]').width(newWith);
+];
+function sumArray(array){
+	return array.reduce(
+  		(previousValue, currentValue) => previousValue + currentValue[1],
+  		0
+	);
+}
+function pickRandom(array){
 
-		var newWith = $('div[name="had"]').width()*1.01;
-		$('div[name="had"]').width(newWith);
-		$('div[name="had-c"]').width(newWith);
+	randomizer = Math.random()*sumArray(array);
+	upTo = 0;
+	decided = false;
 
-		var newWith = $('div[name="utj"]').width()*.99;
-		$('div[name="utj"]').width(newWith);
-		$('div[name="utj-c"]').width(newWith);
+	array.forEach((element) => {
+		if (!decided && (randomizer < upTo + element[1])){
 
-		var newWith = $('div[name="shas"]').width()*.99;
-		$('div[name="shas"]').width(newWith);
-		$('div[name="shas-c"]').width(newWith);
-
-		var newWith = $('div[name="yb"]').width()*.99;
-		$('div[name="yb"]').width(newWith);
-		$('div[name="yb-c"]').width(newWith);
-
-		var newWith = $('div[name="nr"]').width()*.99;
-		$('div[name="nr"]').width(newWith);
-		$('div[name="nr-c"]').width(newWith);
-
-		var newWith = $('div[name="labor"]').width()*1.01;
-		$('div[name="labor"]').width(newWith);
-		$('div[name="labor-c"]').width(newWith);
-
-		var newWith = $('div[name="k"]').width()*.99;
-		$('div[name="k"]').width(newWith);
-		$('div[name="k-c"]').width(newWith);
-
-		var newWith = $('div[name="m"]').width()*1.01;
-		$('div[name="m"]').width(newWith);
-		$('div[name="m-c"]').width(newWith);
-
-		var newWith = $('div[name="rb"]').width()*1.01;
-		$('div[name="rb"]').width(newWith);
-		$('div[name="rb-c"]').width(newWith);
-
-		var newWith = $('div[name="bw"]').width()*1.01;
-		$('div[name="bw"]').width(newWith);
-		$('div[name="bw-c"]').width(newWith);
-
+			decided = true;
+			pick = element[0];
+		}
+		upTo += element[1];
 	});
 
-	$('button[class="minus"]').click(function(){
-		var currPoints = $('.points').html();
-		var newPoints = parseFloat(currPoints)-.5;
-		$('.points').html(newPoints);
-
-		var newWith = $('div[name="bw"]').width()*.99;
-		$('div[name="bw"]').width(newWith);
-		$('div[name="bw-c"]').width(newWith);
-
-		var newWith = $('div[name="lk"]').width()*1.01;
-		$('div[name="lk"]').width(newWith);
-		$('div[name="lk-c"]').width(newWith);
-
-		var newWith = $('div[name="had"]').width()*.99;
-		$('div[name="had"]').width(newWith);
-		$('div[name="had-c"]').width(newWith);
-
-		var newWith = $('div[name="utj"]').width()*1.01;
-		$('div[name="utj"]').width(newWith);
-		$('div[name="utj-c"]').width(newWith);
-
-		var newWith = $('div[name="shas"]').width()*1.01;
-		$('div[name="shas"]').width(newWith);
-		$('div[name="shas-c"]').width(newWith);
-
-		var newWith = $('div[name="yb"]').width()*1.01;
-		$('div[name="yb"]').width(newWith);
-		$('div[name="yb-c"]').width(newWith);
-
-		var newWith = $('div[name="nr"]').width()*1.01;
-		$('div[name="nr"]').width(newWith);
-		$('div[name="nr-c"]').width(newWith);
-
-		var newWith = $('div[name="labor"]').width()*.99;
-		$('div[name="labor"]').width(newWith);
-		$('div[name="labor-c"]').width(newWith);
-
-		var newWith = $('div[name="k"]').width()*1.01;
-		$('div[name="k"]').width(newWith);
-		$('div[name="k-c"]').width(newWith);
-
-		var newWith = $('div[name="m"]').width()*.99;
-		$('div[name="m"]').width(newWith);
-		$('div[name="m-c"]').width(newWith);
-
-		var newWith = $('div[name="rb"]').width()*.99;
-		$('div[name="rb"]').width(newWith);
-		$('div[name="rb-c"]').width(newWith);
-
-		var newWith = $('div[name="bw"]').width()*.99;
-		$('div[name="bw"]').width(newWith);
-		$('div[name="bw-c"]').width(newWith);
-	});
+	return pick;
 
 
+
+
+}
+function decide(){
+
+
+	sumP = sumArray(proteins);
+	sumS = sumArray(starch);
+  	sumM = sumArray(mix);
+  	sumH = sumArray(healthy);
+
+
+  	number = Math.random()*(Math.max(sumP,sumS,sumH)+sumM);
+
+  	if (number < sumM){
+
+  		foodVal = pickRandom(mix);
+
+
+  	} else {
+  		foodVal = pickRandom(proteins) + " with " + pickRandom(starch) +" and " +pickRandom(healthy);
+  	}
+    document.getElementById('food').innerHTML = foodVal;
+}
 </script>
+
+
+<button style="background: blue; padding: 50px; margin: auto; color: white; font-size: 30px;
+"  onclick="decide()">What should I eat for diner?</button>
+
+
+<div id="food" style="font-size: 20px;"></div>
